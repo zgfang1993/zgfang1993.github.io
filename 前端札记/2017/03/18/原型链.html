@@ -6,14 +6,55 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//guifzhang.me">
-  <title>Tag: JavaScript | guifzhang的博客</title>
+  <title>JavaScript 原型链分析 | guifzhang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="guifzhang的博客">
-<meta property="og:url" content="//guifzhang.me/tags/JavaScript/index.html">
+  <meta name="description" content="对象要清楚原型链,首先要弄清楚对象：
+
+普通对象
+
+最普通的对象：有proto属性（指向其原型链），没有prototype属性。
+原型对象(person.prototype 原型对象还有constructor属性（指向构造函数对象）)
+
+
+函数对象：
+
+凡是通过new Function()创建的都是函数对象。拥有proto、prototype属性（指向原型对象）。Function、Object、A">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 原型链分析">
+<meta property="og:url" content="//guifzhang.me/前端札记/2017/03/18/原型链.html">
 <meta property="og:site_name" content="guifzhang的博客">
+<meta property="og:description" content="对象要清楚原型链,首先要弄清楚对象：
+
+普通对象
+
+最普通的对象：有proto属性（指向其原型链），没有prototype属性。
+原型对象(person.prototype 原型对象还有constructor属性（指向构造函数对象）)
+
+
+函数对象：
+
+凡是通过new Function()创建的都是函数对象。拥有proto、prototype属性（指向原型对象）。Function、Object、A">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/14739234/23468481/e77c0574-fedb-11e6-8dc6-00310dc1ffb6.png">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/14739234/23468634/3d69ae28-fedc-11e6-87d4-a3fcf1dd544d.png">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/14739234/23468682/6766d4c6-fedc-11e6-96f6-964a7d05faee.png">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/14739234/23468729/8b8e4e7e-fedc-11e6-92fe-14324c789b08.png">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/14739234/23468746/97c38970-fedc-11e6-9647-70bde9607f1f.png">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/14739234/23468765/a331c132-fedc-11e6-94a2-1ba8058a9ed9.png">
+<meta property="og:updated_time" content="2017-03-19T15:29:42.522Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="guifzhang的博客">
+<meta name="twitter:title" content="JavaScript 原型链分析">
+<meta name="twitter:description" content="对象要清楚原型链,首先要弄清楚对象：
+
+普通对象
+
+最普通的对象：有proto属性（指向其原型链），没有prototype属性。
+原型对象(person.prototype 原型对象还有constructor属性（指向构造函数对象）)
+
+
+函数对象：
+
+凡是通过new Function()创建的都是函数对象。拥有proto、prototype属性（指向原型对象）。Function、Object、A">
+<meta name="twitter:image" content="https://cloud.githubusercontent.com/assets/14739234/23468481/e77c0574-fedb-11e6-8dc6-00310dc1ffb6.png">
   
     <link rel="alternative" href="/atom.xml" title="guifzhang的博客" type="application/atom+xml">
   
@@ -145,207 +186,98 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-原型链" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/前端札记/2017/03/19/函数.html" class="archive-article-date">
-  	<time datetime="2017-03-19T14:28:21.409Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/前端札记/2017/03/19/函数.html">JavaScript 红宝书整理--函数</a>
+    <h1 class="article-title" itemprop="name">
+      JavaScript 原型链分析
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Web</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">红宝书</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端札记/" class="article-tag-list-link color5">前端札记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/前端札记/2017/03/19/事件.html" class="archive-article-date">
-  	<time datetime="2017-03-19T14:24:58.745Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/前端札记/2017/03/19/事件.html">JavaScript 红宝书整理--事件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Web</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">红宝书</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端札记/" class="article-tag-list-link color5">前端札记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/前端札记/2017/03/19/继承.html" class="archive-article-date">
-  	<time datetime="2017-03-18T16:16:06.342Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/前端札记/2017/03/19/继承.html">JavaScript 红宝书整理--继承</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Web</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">红宝书</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端札记/" class="article-tag-list-link color5">前端札记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/前端札记/2017/03/18/原型链.html" class="archive-article-date">
+        
+        <a href="/前端札记/2017/03/18/原型链.html" class="archive-article-date">
   	<time datetime="2017-03-18T15:54:59.040Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-18</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/前端札记/2017/03/18/原型链.html">JavaScript 原型链分析</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>要清楚原型链,首先要弄清楚对象：</p>
+<ul>
+<li><p>普通对象</p>
+<ul>
+<li>最普通的对象：有<strong>proto</strong>属性（指向其原型链），没有prototype属性。</li>
+<li>原型对象(person.prototype 原型对象还有constructor属性（指向构造函数对象）)</li>
+</ul>
+</li>
+<li><p>函数对象：</p>
+<ul>
+<li>凡是通过new Function()创建的都是函数对象。<br>拥有<strong>proto</strong>、prototype属性（指向原型对象）。<br>Function、Object、Array、Date、String、自定义函数<a id="more"></a>
+特例： Function.prototype(是原型对象，却是函数对象，下面会有解释)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//函数对象  </span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;&#125;;  </div><div class="line"><span class="keyword">var</span> f2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;  </div><div class="line"><span class="keyword">var</span> f3 = <span class="function"><span class="keyword">function</span>(<span class="params"><span class="string">"n1"</span>,<span class="string">"n2"</span>,<span class="string">"return n1+n2"</span></span>);</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> f1);  <span class="comment">//function  </span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> f2);  <span class="comment">//function  </span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> f3);   <span class="comment">//function  </span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Object</span>);   <span class="comment">//function  </span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Array</span>);   <span class="comment">//function  </span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">String</span>);   <span class="comment">//function  </span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Date</span>);   <span class="comment">//function  </span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Function</span>);   <span class="comment">//function </span></div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line">![10](https://cloud.githubusercontent.com/assets/14739234/23469011/5dff439a-fedd-11e6-8e84-7841368f64af.png)</div><div class="line"></div><div class="line">Array是函数对象，是Function的实例对象，Array是通过newFunction创建出来的。因为Array是Function的实例，所以Array.__proto__ === Function.prototype</div><div class="line"></div><div class="line">`<span class="string">``</span>JavaScript</div><div class="line"><span class="comment">//普通对象  </span></div><div class="line"><span class="keyword">var</span> o1 = <span class="keyword">new</span> f1();   </div><div class="line"><span class="keyword">var</span> o2 = &#123;&#125;;         </div><div class="line"><span class="keyword">var</span> o3 = <span class="keyword">new</span> <span class="built_in">Object</span>();   </div><div class="line">  </div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> o1);  <span class="comment">//Object  </span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> o2);   <span class="comment">//Object  </span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> o3);   <span class="comment">//Object</span></div></pre></td></tr></table></figure>
+<h2 id="原型对象"><a href="#原型对象" class="headerlink" title="原型对象"></a>原型对象</h2><p>每创建一个函数都会有一个prototype属性，这个属性是一个指针，指向一个对象（通过该构造函数创建实例对象的原型对象）。原型对象是包含特定类型的所有实例共享的属性和方法。原型对象的好处是，可以让所有实例对象共享它所包含的属性和方法。</p>
+<p>第一块中有提到，原型对象属于普通对象。Function.prototype是个例外，它是原型对象，却又是函数对象，作为一个函数对象，它又没有prototype属性。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params"></span>)</span>&#123;&#125;;  </div><div class="line">  </div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> person.prototype) <span class="comment">//Object  </span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Object</span>.prototype) <span class="comment">// Object  </span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Function</span>.prototype) <span class="comment">// 特殊 Function  </span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Function</span>.prototype.prototype) <span class="comment">//undefined 函数对象却没有prototype属性</span></div></pre></td></tr></table></figure></p>
+<p><code>解释：</code></p>
+<p>其实原型对象就是构造函数的一个实例对象。person.prototype就是person的一个实例对象。相当于在person创建的时候，自动创建了一个它的实例，并且把这个实例赋值给了prototype。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params"></span>)</span>&#123;&#125;;  </div><div class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> person();  </div><div class="line">person.prototype = temp;  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Function</span>(<span class="params"></span>)</span>&#123;&#125;;  </div><div class="line"><span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="built_in">Function</span>();  </div><div class="line"><span class="built_in">Function</span>.prototype = temp; <span class="comment">//由new Function()产生的对象都是函数对象</span></div></pre></td></tr></table></figure>
+<p>从一张图看懂原型对象、构造函数、实例对象之间的关系<br><img src="https://cloud.githubusercontent.com/assets/14739234/23468481/e77c0574-fedb-11e6-8dc6-00310dc1ffb6.png" alt="v2-830f96ed4a5765089776e9702120d484_b"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params"></span>)</span>&#123;&#125;;  </div><div class="line">  </div><div class="line">Dog.prototype.name = <span class="string">"小黄"</span>;  </div><div class="line">Dog.prototype.age =  <span class="number">13</span>;  </div><div class="line">Dog.prototype.getAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.age;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="keyword">var</span> dog1 = <span class="keyword">new</span> Dog();  </div><div class="line"><span class="keyword">var</span> dog2 = <span class="keyword">new</span> Dog();  </div><div class="line">  </div><div class="line">dog2.name = <span class="string">"小黑"</span>;  </div><div class="line"><span class="built_in">console</span>.log(dog1.name); <span class="comment">// 小黄 来自原型  </span></div><div class="line"><span class="built_in">console</span>.log(dog2.name); <span class="comment">// 小黑 来自实例</span></div></pre></td></tr></table></figure>
+<p><img src="https://cloud.githubusercontent.com/assets/14739234/23468634/3d69ae28-fedc-11e6-87d4-a3fcf1dd544d.png" alt="v2-5d7fc42b450728c6a5b72a903ee3fc36_r"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//图中的一些关系  </span></div><div class="line">dog1.__proto__ === Dog.prototype  </div><div class="line">  </div><div class="line">Dog.prototype.__proto__ === <span class="built_in">Object</span>.prototype <span class="comment">//继承Object 下面原型链说  </span></div><div class="line">  </div><div class="line">dog1.__proto__.__proto__ === <span class="built_in">Object</span>.prototype  </div><div class="line">  </div><div class="line">Dog.prototype.constructor === Dog   </div><div class="line">  </div><div class="line">Dog.prototype.isPrototypeOf(dog1)  </div><div class="line">  </div><div class="line"><span class="comment">//获取对象的原型  </span></div><div class="line">dog1.__proto__  <span class="comment">//不推荐  </span></div><div class="line"><span class="built_in">Object</span>.getPrototypeOf(dog1) === Dog.prototype   <span class="comment">//推荐</span></div></pre></td></tr></table></figure>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>原型链是实现继承的主要方法。</p>
+<p>先说一下继承，许多OO语言都支持两张继承方式：接口继承、实现继承。</p>
+<p>|- 接口继承：只继承方法签名</p>
+<p>|- 实现继承：继承实际的方法</p>
+<p>由于函数没有签名，在ECMAScript中无法实现接口继承，只支持实现继承，而实现继承主要是依靠原型链来实现。</p>
+<p>原型链基本思路：</p>
+<p>利用原型让一个引用类型继承另一个引用类型的属性和方法。</p>
+<p>每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数想指针(constructor)，而实例对象都包含一个指向原型对象的内部指针(<strong>proto</strong>)。如果让原型对象等于另一个类型的实例，此时的原型对象将包含一个指向另一个原型的指针(<strong>proto</strong>)，另一个原型也包含着一个指向另一个构造函数的指针(constructor)。假如另一个原型又是另一个类型的实例……这就构成了实例与原型的链条。</p>
+<p>原型链基本思路（图解）：<br><img src="https://cloud.githubusercontent.com/assets/14739234/23468682/6766d4c6-fedc-11e6-96f6-964a7d05faee.png" alt="v2-901202a60d3f6e9fcc90a69d06fe0282_r"></p>
+<p>举例说明：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">animal</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">    <span class="keyword">this</span>.type = <span class="string">"animal"</span>;  </div><div class="line">&#125;  </div><div class="line">animal.prototype.getType = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.type;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">dog</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">    <span class="keyword">this</span>.name = <span class="string">"dog"</span>;  </div><div class="line">&#125;  </div><div class="line">dog.prototype = <span class="keyword">new</span> animal();  </div><div class="line">  </div><div class="line">dog.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="keyword">var</span> xiaohuang = <span class="keyword">new</span> dog();  <span class="string">``</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//原型链关系  </span></div><div class="line">xiaohuang.__proto__ === dog.prototype  </div><div class="line">dog.prototype.__proto__ === animal.prototype  </div><div class="line">animal.prototype.__proto__ === <span class="built_in">Object</span>.prototype  </div><div class="line"><span class="built_in">Object</span>.prototype.__proto__ === <span class="literal">null</span></div></pre></td></tr></table></figure>
+<p>图解:<br><img src="https://cloud.githubusercontent.com/assets/14739234/23468729/8b8e4e7e-fedc-11e6-92fe-14324c789b08.png" alt="2"></p>
+<p>详细图:<br><img src="https://cloud.githubusercontent.com/assets/14739234/23468746/97c38970-fedc-11e6-9647-70bde9607f1f.png" alt="3"></p>
+<p>从xiaohuang这个实例，看出整个链条:<br><img src="https://cloud.githubusercontent.com/assets/14739234/23468765/a331c132-fedc-11e6-94a2-1ba8058a9ed9.png" alt="4"></p>
+<p>总结：</p>
+<p>Xiaohuang这个Dog的实例对象继承了Animal，Animal继承了Object。</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -361,7 +293,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -374,17 +306,90 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://guifzhang.me/前端札记/2017/03/18/原型链.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/前端札记/2017/03/19/继承.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JavaScript 红宝书整理--继承
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -407,9 +412,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
