@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//guifzhang.me">
-  <title>JavaScript 红宝书整理--继承 | guifzhang的博客</title>
+  <title>JavaScript 红宝书整理--继承 | 咕噜咕噜Purr</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="继承
 #1 原型链的详细分析 可看此章节接下来说说其他类型的继承
@@ -23,7 +23,7 @@ OO语言    |- 接口继承: 只继承方法签名    |- 实现继承: 继承实
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 红宝书整理--继承">
 <meta property="og:url" content="//guifzhang.me/前端札记/2017/03/19/继承.html">
-<meta property="og:site_name" content="guifzhang的博客">
+<meta property="og:site_name" content="咕噜咕噜Purr">
 <meta property="og:description" content="继承
 #1 原型链的详细分析 可看此章节接下来说说其他类型的继承
 OO语言    |- 接口继承: 只继承方法签名    |- 实现继承: 继承实际的方法
@@ -36,7 +36,7 @@ OO语言    |- 接口继承: 只继承方法签名    |- 实现继承: 继承实
 原型式继承
 寄生式继承
 寄生组合式继承">
-<meta property="og:updated_time" content="2017-03-19T15:21:52.996Z">
+<meta property="og:updated_time" content="2017-03-22T13:43:16.666Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 红宝书整理--继承">
 <meta name="twitter:description" content="继承
@@ -52,7 +52,7 @@ OO语言    |- 接口继承: 只继承方法签名    |- 实现继承: 继承实
 寄生式继承
 寄生组合式继承">
   
-    <link rel="alternative" href="/atom.xml" title="guifzhang的博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="咕噜咕噜Purr" type="application/atom+xml">
   
   
     <link rel="icon" href="https://cloud.githubusercontent.com/assets/14739234/24082737/71111aea-0d05-11e7-8f6e-ea56ee59ba4b.png">
@@ -75,14 +75,14 @@ OO语言    |- 接口继承: 只继承方法签名    |- 实现继承: 继承实
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: rgba(255, 80, 80, 0.2)"></div>
+<div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			<img src="https://cloud.githubusercontent.com/assets/14739234/24071226/eda8438e-0c07-11e7-948e-1cde0dfe8481.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">guifzhang</a></h1>
+		  <h1 class="header-author"><a href="/">咕噜咕噜</a></h1>
 		</hgroup>
 		
 		<p class="header-subtitle">爱美食 爱前端</p>
@@ -126,7 +126,7 @@ OO语言    |- 接口继承: 只继承方法签名    |- 实现继承: 继承实
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: rgba(255, 80, 80, 0.2)"></div>
+  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -136,7 +136,7 @@ OO语言    |- 接口继承: 只继承方法签名    |- 实现继承: 继承实
 				<img src="https://cloud.githubusercontent.com/assets/14739234/24071226/eda8438e-0c07-11e7-948e-1cde0dfe8481.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">guifzhang</h1>
+			  <h1 class="header-author js-header-author">咕噜咕噜</h1>
 			</hgroup>
 			
 			<p class="header-subtitle"><i class="icon icon-quo-left"></i>爱美食 爱前端<i class="icon icon-quo-right"></i></p>
@@ -309,10 +309,6 @@ JavaScript主要通过原型链实现继承。使用最多的是组合继承。<
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Web</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">红宝书</a>
         		</li>
       		
@@ -430,7 +426,7 @@ JavaScript主要通过原型链实现继承。使用最多的是组合继承。<
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 guifzhang
+    		&copy; 2017 咕噜咕噜
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -505,15 +501,7 @@ JavaScript主要通过原型链实现继承。使用最多的是组合继承。<
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">红宝书</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Web - 红宝书</a>
               </li>
             
             <div class="clearfix"></div>
